@@ -55,6 +55,7 @@ Rails.application.configure do
   # for Devise
   config.action_mailer.default_url_options = { host: '091ae144ccef4a0a9762253162efcc18.vfs.cloud9.us-east-1.amazonaws.com', port: 80 }
   
+  
   config.action_mailer.smtp_settings = {
   :enable_starttls_auto => true,
   :address => "smtp.gmail.com",
