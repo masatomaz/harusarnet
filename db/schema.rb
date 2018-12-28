@@ -10,11 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181202142112) do
+ActiveRecord::Schema.define(version: 20181226065415) do
+
+  create_table "communities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.text     "description", limit: 65535
+    t.string   "image"
+    t.integer  "user_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["user_id"], name: "index_communities_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                                default: "", null: false
+    t.string   "encrypted_password",                   default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -22,14 +32,21 @@ ActiveRecord::Schema.define(version: 20181202142112) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
     t.string   "token"
+    t.integer  "gender",                 limit: 2
+    t.date     "birthday"
+    t.text     "profile",                limit: 65535
+    t.string   "profile_picture"
+    t.boolean  "admin"
+    t.integer  "prefecture"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "communities", "users"
 end

@@ -62,4 +62,17 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 
+# 日本語化
 gem 'rails-i18n', '~> 5.1' # For 5.0.x, 5.1.x and 5.2.x
+
+# for uploading images
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+gem 'fog-aws'
+
+# for pagenation
+gem 'kaminari'
+
+group :production do
+  gem 'pg', '0.21.0'
+end

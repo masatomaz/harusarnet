@@ -33,3 +33,53 @@ footer {
   margin-top: 5px;
   height: 40px;
 }
+.navbar-brand {
+  background: url("/images/s_f_leaf1040.png") no-repeat center;
+  background-size: contain;
+  height: 50px;
+  
+}
+
+.navbar-brand img {
+  display: block;
+}
+
+.cover-img {
+	height: 150px;
+	display: table;
+	width: 100%;
+	background-size: cover;
+}
+
+/* ワイドスクリーン用のCSS */
+@media only screen and (min-width: 1500px) {
+	.cover-img {
+		height: 200px;
+	}
+}
+
+/* タブレット用のCSS */
+@media only screen and (min-width : 768px) and (max-width : 1200px) {
+	.cover-img {
+		height: 120px;
+	}
+}
+
+/* スマホ用のCSS */
+@media only screen and (max-width: 479px) {
+	.cover-img {
+		height: 100px;
+	}
+}
+
+.cover-text {
+	display: table-cell;
+	vertical-align: middle;
+  text-align: center;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+  
+}
+
+.cover-text h2{
+  font-weight: 800;
+}
