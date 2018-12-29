@@ -87,7 +87,6 @@ Rails.application.configure do
   # for Devise
   config.action_mailer.default_url_options = { host: 'harusarnet.herokuapp.com', port: 80 }
   
-  
   config.action_mailer.smtp_settings = {
   :enable_starttls_auto => true,
   :address => "smtp.gmail.com",
@@ -95,6 +94,6 @@ Rails.application.configure do
   :domain => 'smtp.gmail.com',
   :user_name => ENV['GMAIL_USERNAME'], #gmailアドレス
   :password => ENV['GMAIL_PASSWORD'], #gmailパスワード
-  :authentication => 'plain',
-}
+  :authentication => 'login'
+  }
 end
