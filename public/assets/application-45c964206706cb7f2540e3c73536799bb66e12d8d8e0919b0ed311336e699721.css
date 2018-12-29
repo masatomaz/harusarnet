@@ -1,0 +1,92 @@
+@charset "UTF-8";
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+/* body */
+/* line 22, /home/ec2-user/environment/original-service/harusarnet/app/assets/stylesheets/application.css.scss */
+body {
+  background: #f2f2f2;
+}
+
+/* line 25, /home/ec2-user/environment/original-service/harusarnet/app/assets/stylesheets/application.css.scss */
+footer {
+  margin-top: 40px;
+}
+
+/* navbar */
+/* line 30, /home/ec2-user/environment/original-service/harusarnet/app/assets/stylesheets/application.css.scss */
+.navbar {
+  background-color: #fff;
+}
+
+/* line 33, /home/ec2-user/environment/original-service/harusarnet/app/assets/stylesheets/application.css.scss */
+.navbar-header img {
+  margin-top: 5px;
+  height: 40px;
+}
+
+/* line 37, /home/ec2-user/environment/original-service/harusarnet/app/assets/stylesheets/application.css.scss */
+.navbar-brand {
+  background: url("/images/s_f_leaf1040.png") no-repeat center;
+  background-size: contain;
+  height: 50px;
+}
+
+/* line 44, /home/ec2-user/environment/original-service/harusarnet/app/assets/stylesheets/application.css.scss */
+.navbar-brand img {
+  display: block;
+}
+
+/* line 48, /home/ec2-user/environment/original-service/harusarnet/app/assets/stylesheets/application.css.scss */
+.cover-img {
+  height: 150px;
+  display: table;
+  width: 100%;
+  background-size: cover;
+}
+
+/* ワイドスクリーン用のCSS */
+@media only screen and (min-width: 1500px) {
+  /* line 57, /home/ec2-user/environment/original-service/harusarnet/app/assets/stylesheets/application.css.scss */
+  .cover-img {
+    height: 200px;
+  }
+}
+/* タブレット用のCSS */
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  /* line 64, /home/ec2-user/environment/original-service/harusarnet/app/assets/stylesheets/application.css.scss */
+  .cover-img {
+    height: 120px;
+  }
+}
+/* スマホ用のCSS */
+@media only screen and (max-width: 479px) {
+  /* line 71, /home/ec2-user/environment/original-service/harusarnet/app/assets/stylesheets/application.css.scss */
+  .cover-img {
+    height: 100px;
+  }
+}
+/* line 76, /home/ec2-user/environment/original-service/harusarnet/app/assets/stylesheets/application.css.scss */
+.cover-text {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* line 84, /home/ec2-user/environment/original-service/harusarnet/app/assets/stylesheets/application.css.scss */
+.cover-text h2 {
+  font-weight: 800;
+}
