@@ -8,6 +8,8 @@ class User < ApplicationRecord
   validate :picture_size
   
   has_many :communities
+  has_many :community_members
+  has_many :joined_communities, through: :community_members, source: :community
   
   enum gender: %i( notselected male female)
   
@@ -35,6 +37,21 @@ class User < ApplicationRecord
   def age
     date_format = "%Y%m%d"
     (Date.today.strftime(date_format).to_i - birthday.strftime(date_format).to_i) / 10000
+  end
+  
+  
+  def join_community(community)
+    self.community_members.find_or_create_by(community_id: community.id)
+  end
+  
+  def leave_community(community)
+    community_member = self.community_members.find_by(community_id: community.id)
+    community_member.destroy if community_member
+  end
+  
+  def joining?(community)
+    self.community_members.exists? community_id: community.id
+    #self.community_members.include?(community)
   end
   
   private

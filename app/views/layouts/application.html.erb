@@ -19,9 +19,16 @@
   <body>
     <%= render 'layouts/navbar' %>
     
-    <div class="container">
+    <div class="container" id="wrapper">
+      <%= render 'layouts/cover' %>
       <%= render 'layouts/flash_messages' %>
-      <%= yield %>
+      
+      <aside class="left">ランキング</aside>
+      <div id="main">
+        <%= yield %>
+      </div>
+      
+      <aside class="right">PR</aside>
     </div>
     <%= render 'layouts/footer' %>
   </body>

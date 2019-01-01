@@ -1,0 +1,11 @@
+<% if current_user.joining?(community) %>
+  <%= form_tag(community_member_path(community.id), method: :delete) do %>
+    <%= hidden_field_tag :community_id, community.id %>
+    <%= submit_tag 'コミュニティから退出する', class: 'btn btn-success' %>
+  <% end %>
+<% else %>
+  <%= form_tag(community_members_path) do %>
+    <%= hidden_field_tag :community_id, community.id %>
+    <%= submit_tag 'コミュニティへ参加する', class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
