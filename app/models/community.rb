@@ -7,7 +7,7 @@ class Community < ApplicationRecord
   belongs_to :user
   has_many :community_members
   has_many :users, through: :community_members
-  
+  has_many :community_topics
   
   
   

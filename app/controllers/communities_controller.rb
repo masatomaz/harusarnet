@@ -1,7 +1,8 @@
 class CommunitiesController < ApplicationController
   def index
-    @communities = Community.all.page(params[:page]).per(5)
+    @communities = Community.all.order('created_at DESC').page(params[:page]).per(5)
     @community = Community.new
+    
   end
   
   def show

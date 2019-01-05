@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :communities
   has_many :community_members
   has_many :joined_communities, through: :community_members, source: :community
+  has_many :community_topics
   
   enum gender: %i( notselected male female)
   

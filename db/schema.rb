@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181230160446) do
+ActiveRecord::Schema.define(version: 20190101161446) do
 
   create_table "communities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -31,6 +31,19 @@ ActiveRecord::Schema.define(version: 20181230160446) do
     t.index ["community_id"], name: "index_community_members_on_community_id", using: :btree
     t.index ["user_id", "community_id"], name: "index_community_members_on_user_id_and_community_id", unique: true, using: :btree
     t.index ["user_id"], name: "index_community_members_on_user_id", using: :btree
+  end
+
+  create_table "community_topics", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "community_id"
+    t.string   "title"
+    t.text     "content",      limit: 65535
+    t.string   "image"
+    t.integer  "view_count"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["community_id"], name: "index_community_topics_on_community_id", using: :btree
+    t.index ["user_id"], name: "index_community_topics_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -62,4 +75,6 @@ ActiveRecord::Schema.define(version: 20181230160446) do
   add_foreign_key "communities", "users"
   add_foreign_key "community_members", "communities"
   add_foreign_key "community_members", "users"
+  add_foreign_key "community_topics", "communities"
+  add_foreign_key "community_topics", "users"
 end

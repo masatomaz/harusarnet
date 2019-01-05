@@ -24,6 +24,7 @@ module Harusarnet
     
     config.i18n.default_locale = :ja
     config.assets.initialize_on_precompile = false
+    config.time_zone = 'Asia/Tokyo'
   end
 end
 

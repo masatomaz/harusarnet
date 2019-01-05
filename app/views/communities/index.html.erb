@@ -45,7 +45,7 @@ Communities#index
         </div>
         <div class="media-body">
           <div>
-            <%= community.name %>
+            <%= link_to community.name, community_community_topics_path(community.id) %>
           </div>
           <div>
             <span>members: </span><%= CommunityMember.where(community_id: community.id).count %>
@@ -53,8 +53,18 @@ Communities#index
           </div>
           <div>
             <p><%= community.description %></p>
-            <p><%= link_to 'トピック一覧', communities_path %></p>
+            
           </div>
+          <% top3_topics = community.community_topics.all.order('created_at DESC') %>
+          <% if top3_topics.any? %>
+            <ul>
+              <% top3_topics.limit(3).each do |topic| %>
+                <li>
+                  <%= link_to topic.title, [community,topic] %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
           
           <div class="buttons text-center">
             <%= render 'community_members/join_button', community: community %>
