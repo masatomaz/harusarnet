@@ -16,6 +16,43 @@
     <p><%= @topic.user.name %></p>
     <p>作成日時：<%= simple_time(@topic.created_at) %></p>
     </div>
-    
   </div>
 </div>
+
+<% if @comments.any? %>
+  <h3>コメント一覧</h3>
+  <ul class="media-list col-md-10 col-md-offset-1">
+    <% @comments.each do |comment| %>
+      <li class="media">
+        <div class="media-left">
+          <p><%= comment.user.name %></p>
+          <p>作成日時：<%= simple_time(comment.created_at) %></p>
+        </div>
+        <div>
+          <p><%= comment.content %></p>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <%= paginate @comments %>
+<% end %>
+
+
+<%= form_for([@community,@topic,@comment], html: {class: "form-horizontal" }) do |f| %>
+
+      
+      <div class="form-group">
+        
+        <div class="col-md-10 col-md-offset-1">
+          <%= f.text_area :content, class: 'form-control', :placeholder => "コメント" %>
+        </div>
+      </div>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :community_topic_id, :value => @topic.id %>
+
+
+
+      <div class="actions col-md-10 col-md-offset-1">
+        <%= f.submit "コメントする", class: 'btn btn-default pull-right' %>
+      </div>
+    <% end %>

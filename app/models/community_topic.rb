@@ -6,5 +6,6 @@ class CommunityTopic < ApplicationRecord
   validates :title, presence: true, length: { maximum: 255}
   validates :content, length: { maximum: 5000}
   
+  has_many :community_comments
 
 end

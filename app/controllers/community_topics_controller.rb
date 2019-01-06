@@ -9,14 +9,14 @@ class CommunityTopicsController < ApplicationController
   def show
     @community = Community.find_by(id: params[:community_id])
     @topic = CommunityTopic.find(params[:id])
+    @comments = @topic.community_comments.all.order('created_at DESC').page(params[:page]).per(5)
+    @comment = CommunityComment.new
+    
     @topic.increment(:view_count)
     @topic.save
   end
 
-  def new
-    @topic = CommunityTopic.new
-    
-  end
+
 
   def create
     @community = Community.find_or_initialize_by(id: params[:community_id])

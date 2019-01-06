@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190101161446) do
+ActiveRecord::Schema.define(version: 20190105163513) do
 
   create_table "communities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 20190101161446) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.index ["user_id"], name: "index_communities_on_user_id", using: :btree
+  end
+
+  create_table "community_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "content",            limit: 65535
+    t.integer  "user_id"
+    t.integer  "community_topic_id"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.index ["community_topic_id"], name: "index_community_comments_on_community_topic_id", using: :btree
+    t.index ["user_id"], name: "index_community_comments_on_user_id", using: :btree
   end
 
   create_table "community_members", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -73,6 +83,8 @@ ActiveRecord::Schema.define(version: 20190101161446) do
   end
 
   add_foreign_key "communities", "users"
+  add_foreign_key "community_comments", "community_topics"
+  add_foreign_key "community_comments", "users"
   add_foreign_key "community_members", "communities"
   add_foreign_key "community_members", "users"
   add_foreign_key "community_topics", "communities"
