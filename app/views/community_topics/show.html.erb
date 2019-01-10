@@ -12,7 +12,7 @@
       <% end %>
     </div>
     <div>
-    <%= image_tag current_user.profile_picture.thumb.url %>
+    <%= image_tag current_user.profile_picture.thumb.url, class: "media-object img-rounded" %>
     <p><%= @topic.user.name %></p>
     <p>作成日時：<%= simple_time(@topic.created_at) %></p>
     </div>
@@ -25,6 +25,11 @@
     <% @comments.each do |comment| %>
       <li class="media">
         <div class="media-left">
+          <% unless current_user.profile_picture.blank? %>
+            <%= image_tag current_user.profile_picture.thumb.url, class: "media-object img-rounded" %>
+          <% else %>
+            <%= image_tag '/images/no_avatar.png', class: "media-object img-rounded" %>
+          <% end %>
           <p><%= comment.user.name %></p>
           <p>作成日時：<%= simple_time(comment.created_at) %></p>
         </div>
