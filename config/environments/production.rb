@@ -85,7 +85,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   # for Devise
-  config.action_mailer.default_url_options = { host: 'http://harusarnet.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'https://harusarnet.herokuapp.com' }
   
   config.action_mailer.smtp_settings = {
   :enable_starttls_auto => true,
