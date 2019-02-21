@@ -51,25 +51,85 @@ footer {
 	background-size: cover;
 }
 
-/* ワイドスクリーン用のCSS */
-@media only screen and (min-width: 1500px) {
-	.cover-img {
-		height: 200px;
+#wrapper {
+	  display:flex;
+	  flex-wrap: wrap;
 	}
+	
+.main_container{
+  display:flex;
+  // flex-direction: column;
+  flex-wrap:wrap;
+  width:100%;
+}
+.container-fluid {
+  width:100%;
+  
+  
+}
+  #main {
+    width: 100%;
+    padding: 10px;
+    background-color: #ddffdd;
+  }
+  aside {
+    width: 100%;
+    padding: 10px;
+    background-color: #ffddff;
+  }
+
+/* スマホ用のCSS */
+@media screen and (min-width:480px) {
+	#main {
+    width: 100%;
+  
+    background-color: #ddffdd;
+  }
+  aside {
+    width: 100%;
+  
+    background-color: #ffddff;
+  }
 }
 
 /* タブレット用のCSS */
-@media only screen and (min-width : 768px) and (max-width : 1200px) {
-	.cover-img {
-		height: 120px;
-	}
+@media screen and (min-width:768px) and ( max-width:1023px) {
+	#main {
+    width: 70%;
+  
+    background-color: #ddffdd;
+  }
+  aside.left {
+    width: 100%;
+  
+    background-color: #ffdddd;
+  }
+  aside.right{
+    width: 30%;
+  
+    background-color: #ffddff;
+  }
 }
 
-/* スマホ用のCSS */
-@media only screen and (max-width: 479px) {
+
+
+/* ワイドスクリーン用のCSS */
+@media screen and (min-width:1024px) {
 	.cover-img {
-		height: 100px;
+		height: 200px;
 	}
+	
+	#main {
+    width: 60%;
+  
+    background-color: #ddffdd;
+  }
+  aside {
+    width: 20%;
+  
+    background-color: #ffddff;
+  }
+	
 }
 
 .cover-text {
@@ -82,28 +142,4 @@ footer {
 
 .cover-text h2{
   font-weight: 800;
-}
-
-
-
-#wrapper {
-  overflow: hidden;
-}
-
-div#main {
-  float: left;
-  width: 60%;
-  
-  background-color: #ddffdd;
-}
-aside {
-  width: 20%;
-  
-  background-color: #ffddff;
-}
-aside.left {
-  float: left;
-}
-aside.right {
-  float: right;
 }

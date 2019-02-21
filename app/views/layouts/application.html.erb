@@ -22,14 +22,15 @@
     <div class="container" id="wrapper">
       <%= render 'layouts/cover' %>
       <%= render 'layouts/flash_messages' %>
-      
-      <aside class="left">ランキング</aside>
-      <div id="main">
-        <%= yield %>
+      <div class="main_container">
+        <aside class="left">ランキング</aside>
+        <div id="main">
+          <%= yield %>
+        </div>
+        <aside class="right">PR</aside>
       </div>
-      
-      <aside class="right">PR</aside>
     </div>
+      
     <%= render 'layouts/footer' %>
   </body>
 </html>
